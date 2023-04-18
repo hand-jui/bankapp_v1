@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.tenco.bank.handler.exception.CustomRestfullException;
+import com.tenco.bank.handler.exception.UnAuthorizedException;
 
 /*
  * 외예 발ㅇ러
@@ -26,6 +27,17 @@ public class MyRestfullExceptionHandler {
 //		반드시 마지막에 ; 콜른을 붙여서 사용하자
 		sb.append("alert('" + e.getMessage() + "');");
 		sb.append("history.back();");
+		sb.append("</script>");
+		return sb.toString();
+	}
+
+	@ExceptionHandler(UnAuthorizedException.class)
+	public String unAuthorizedException(UnAuthorizedException e) {
+		StringBuffer sb = new StringBuffer();
+		sb.append("<script>");
+//		반드시 마지막에 ; 콜른을 붙여서 사용하자
+		sb.append("alert('" + e.getMessage() + "');");
+		sb.append("location.href = \"/user/sign-in\";");
 		sb.append("</script>");
 		return sb.toString();
 	}
