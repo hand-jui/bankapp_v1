@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.tenco.bank.repository.model.Account;
 
-@Mapper
+@Mapper // mybatis 연결처리
 public interface AccountRepository {
 
 	public int insert(Account account);
@@ -18,5 +18,7 @@ public interface AccountRepository {
 	public Account findById(int id);
 
 	public List<Account> findAll();
+	
+	public List<Account> findByUserId(Integer userId);
 
 }

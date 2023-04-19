@@ -3,14 +3,14 @@ package com.tenco.bank.handler;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-/*
- * View 렌더링을 위해 ModelAndView 객체를 반환하도록 기본 설정 되어있다.
- * 예외 page를 리턴하도록 활용 예정
- */
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tenco.bank.handler.exception.CustomPageException;
 
+/*
+ * View 렌더링을 위해 ModelAndView 객체를 반환하도록 기본 설정 되어있다.
+ * 예외 page를 리턴하도록 활용 예정
+ */
 @ControllerAdvice
 public class MyPageExceptionHandler {
 

@@ -14,6 +14,7 @@ import com.tenco.bank.dto.SignUpFormDto;
 import com.tenco.bank.handler.exception.CustomRestfullException;
 import com.tenco.bank.repository.model.User;
 import com.tenco.bank.service.UserService;
+import com.tenco.bank.utils.Define;
 
 @Controller
 @RequestMapping("/user")
@@ -61,7 +62,7 @@ public class UserController {
 		}
 
 //		서비스 호출
-		userService.signUp(signUpFormDto);
+		userService.createUser(signUpFormDto);
 
 		return "redirect:/user/sign-in";
 	}
@@ -99,7 +100,7 @@ public class UserController {
 
 		User principal = userService.signIn(signInFormDto);
 		principal.setPassword(null);
-		session.setAttribute("principal", principal);
+		session.setAttribute(Define.PRINCIPAL, principal);
 		return "/account/list";
 	}
 
