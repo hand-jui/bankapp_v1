@@ -7,7 +7,7 @@
 				<h5>어서오세요, 환영합니다</h5>
 				
 				<div class="bg-light p-md-5 h-75">
-					<form action="#" method="post">
+					<form action="/account/withdraw-proc" method="post">
 					
 						<div class="form-group">
 							<label for="amount">출금 금액:</label>
@@ -21,7 +21,7 @@
 						
 						<div class="form-group">
 							<label for="wAccountPassword">출금 계좌 비밀번호:</label>
-							<input type="password" class="form-control" placeholder="출금 계좌 번호" id="wAccountPassword" name="wAccountPassword">
+							<input type="password" class="form-control" placeholder="출금 계좌 비밀번호" id="wAccountPassword" name="wAccountPassword">
 						</div>
 						
 						<button type="submit" class="btn btn-primary">출금</button>

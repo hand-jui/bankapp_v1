@@ -4,7 +4,7 @@
 <mapper namespace="com.tenco.bank.repository.interfaces.HistoryRepository">
 
 	<insert id="insert">
-		insert into history_tb (amount, w_balance, d_balance, w_account_id, d_account_id, createdAt)
+		insert into history_tb (amount, w_balance, d_balance, w_account_id, d_account_id, created_at)
 		values (#{amount}, #{wBalance}, #{dBalance}, #{wAccountId}, #{dAccountId}, now())
 	</insert>
 
