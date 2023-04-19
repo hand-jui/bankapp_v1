@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tenco.bank.dto.DepositFormDto;
 import com.tenco.bank.dto.SaveFormDto;
 import com.tenco.bank.dto.WithdrawFormDto;
 import com.tenco.bank.handler.exception.CustomRestfullException;
@@ -69,7 +70,7 @@ public class AccountService {
 	public void updateAccountWithdraw(WithdrawFormDto withdrawFormDto, Integer principalId) {
 
 		Account accountEntity = accountRepository.findByNumber(withdrawFormDto.getWAccountNumber());
-		System.out.println(accountEntity.toString());
+//		System.out.println(accountEntity.toString());
 
 //		1.
 		if (accountEntity == null) {
@@ -106,8 +107,40 @@ public class AccountService {
 
 		int resultRowCount = historyRepository.insert(history);
 		if (resultRowCount != 1) {
-			throw new CustomRestfullException("정상처리되지 않았습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new CustomRestfullException("정상 처리 되지 않았습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
+	}
+
+//	입금 처리 기능
+//	트랜잭션 처리
+//	1. 계좌 존재 여부 확인 -> select query
+//	2. 입금 처리 -> update
+//	3. 거래 내역 등록 처리 -> insert
+	@Transactional
+	public void updateAccountDeposit(DepositFormDto depositFormDto) {
+		
+		Account accountEntity = accountRepository.findByNumber(depositFormDto.getDAccountNumber());
+		
+//		1.
+		if(accountEntity == null) {
+			throw new CustomRestfullException("계좌가 존재하지 않습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+//		2. 객체 상태값 변경
+		accountEntity.deposit(depositFormDto.getAmount());
+		accountRepository.updateById(accountEntity);
+		
+		History history = new History();
+		history.setAmount(depositFormDto.getAmount());
+		history.setWBalance(null);
+		history.setDBalance(accountEntity.getBalance());
+		history.setWAccountId(null);
+		history.setDAccountId(accountEntity.getId());
+		
+		int resultRowCount = historyRepository.insert(history);
+		if(resultRowCount !=1) {
+			throw new CustomRestfullException("정상 처리 되지 않았습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }

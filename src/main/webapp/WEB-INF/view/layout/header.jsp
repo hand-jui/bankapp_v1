@@ -50,7 +50,7 @@
 				<h5>Photo of me:</h5>
 				
 				<div class="m--profile"></div>
-				<p style="padding: 8px 0">자라나는 코린이의 은행 관리 시스템입니다</p>
+				<p style="padding: 8px 0">자라나라 코리니</p>
 				<h3>Some Links</h3>
 				<p>Lorem ipsum dolor sit ame.</p>
 				
