@@ -1,11 +1,8 @@
 package com.tenco.bank.repository.model;
 
 import java.sql.Timestamp;
-
 import org.springframework.http.HttpStatus;
-
 import com.tenco.bank.handler.exception.CustomRestfullException;
-
 import lombok.Data;
 
 /*
