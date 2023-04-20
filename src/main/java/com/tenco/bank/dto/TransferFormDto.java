@@ -7,7 +7,7 @@ public class TransferFormDto {
 
 	private Long amount;
 	private String wAccountNumber;
-	private String wAccountpassword;
+	private String wAccountPassword;
 	private String dAccountNumber;
 
 }

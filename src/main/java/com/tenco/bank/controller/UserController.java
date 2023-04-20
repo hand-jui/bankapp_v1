@@ -101,7 +101,7 @@ public class UserController {
 		User principal = userService.signIn(signInFormDto);
 		principal.setPassword(null);
 		session.setAttribute(Define.PRINCIPAL, principal);
-		return "/account/list";
+		return "redirect:/account/list";
 	}
 
 	@GetMapping("/logout")
