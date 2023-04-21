@@ -51,6 +51,7 @@ public class AccountService {
 	}
 
 //	단일 계좌 검색 기능
+	@Transactional
 	public Account readAccount(Integer id) {
 
 		Account accountEntity = accountRepository.findById(id);
@@ -231,7 +232,7 @@ public class AccountService {
 ////			historyDto <- e
 //			System.out.println(e);
 //		});
-		
+
 		return historyDtos;
 	}
 }
