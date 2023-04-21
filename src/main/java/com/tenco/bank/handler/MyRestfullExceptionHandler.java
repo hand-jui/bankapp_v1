@@ -7,8 +7,8 @@ import com.tenco.bank.handler.exception.CustomRestfullException;
 import com.tenco.bank.handler.exception.UnAuthorizedException;
 
 /*
- * 외예 발ㅇ러
- * 데이터를 내려줄 수이싸.
+ * 예외 발생 시
+ * 데이터를 내려줄 수 있다.
  */
 @RestControllerAdvice // IoC 대상 + AOP 기반
 public class MyRestfullExceptionHandler {

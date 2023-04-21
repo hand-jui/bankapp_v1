@@ -18,7 +18,7 @@
 					<div class="user--box">
 						${principal.username}님 계좌<br>
 						계좌 번호 : ${account.number}<br>
-						잔액 : ${account.balance}원
+						잔액 : ${account.formatBalance()}
 					</div>
 					
 					<br>
@@ -42,8 +42,8 @@
 									<td>${history.formatCreadtedAt()}</td>
 									<td>${history.sender}</td>
 									<td>${history.receiver}</td>
-									<td>${history.formatAmount()}</td>
-									<td>${history.formatBalance()}</td>
+									<td>${history.formatMoney(history.amount)}</td>
+									<td>${history.formatMoney(history.balance)}</td>
 								</tr>
 							
 							
