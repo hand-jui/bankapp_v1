@@ -10,11 +10,16 @@ spring:
     view:
       prefix: /WEB-INF/view/
       suffix: .jsp
+  servlet:
+    multipart:
+      max-file-size: 20MB  # 최대 20MB(MaxUploadSizeExceedException 발생)
+      max-request-size: 20MB
+        
   datasource:
-    url: jdbc:mysql://localhost:3306/bank2?serverTimeZone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/bank?serverTimeZone=Asia/Seoul
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 1234
+    password: asd1234
 #  sql:
 #    init:
 #      schema-locations:
