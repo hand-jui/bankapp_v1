@@ -39,4 +39,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
     
+tenco:
+  key: 1q2w3e4r!
+    
     

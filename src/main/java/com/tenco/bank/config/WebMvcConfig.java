@@ -22,7 +22,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 
-		registry.addInterceptor(authInterceptor).addPathPatterns("/account/**").addPathPatterns("/auth/**"); // 1. path
+		registry.addInterceptor(authInterceptor).addPathPatterns("/account/**"); // 1. path
 																												// 하나 더
 																												// 추가하는
 																												// 법
